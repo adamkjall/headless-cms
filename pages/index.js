@@ -1,8 +1,11 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Head from "next/head";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
+import Post from "@components/Post";
 
-export default function Home() {
+import { fetchEntries } from "@utils/contentfulPosts";
+
+export default function Home({ posts }) {
   return (
     <div className="container">
       <Head>
@@ -12,12 +15,30 @@ export default function Home() {
 
       <main>
         <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
+        <div className="posts">
+          {posts?.map((post) => (
+            <Post
+              key={post.date}
+              date={post.date}
+              image={post.image.fields}
+              title={post.title}
+            />
+          ))}
+        </div>
       </main>
 
       <Footer />
     </div>
-  )
+  );
+}
+
+export async function getStaticProps() {
+  const res = await fetchEntries();
+  const posts = await res.map((post) => post.fields);
+  console.log("posts", posts);
+  return {
+    props: {
+      posts,
+    },
+  };
 }
