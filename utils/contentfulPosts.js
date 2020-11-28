@@ -11,5 +11,3 @@ export async function fetchEntries() {
   if (entries.items) return entries.items;
   console.log(`Error getting entries for ${contentType.name}`);
 }
-
-export default { fetchEntries };
