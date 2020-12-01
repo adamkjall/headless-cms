@@ -1,36 +1,25 @@
 import Head from "next/head";
 import Header from "@components/Header";
-import Footer from "@components/Footer";
-import Post from "@components/Post";
+import Footer from "@components/footer/Footer";
+import PostCard from "@components/post/PostCard";
 
-import { fetchEntries } from "@utils/contentfulPosts";
+import { getAllPosts } from "@utils/contentfulPosts";
 
 export default function Home({ posts }) {
   return (
     <div>
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="max-w-screen-xl mx-auto px-4">
-        <Header title="Welcome to my app!" />
-        <div className="posts ">
-          {posts?.map((post) => (
-            <Post key={post.date} post={post} />
-          ))}
-        </div>
-      </main>
-
-      <Footer />
+      <div className="posts grid grid-cols-1 gap-10">
+        {posts?.slice(0, 3).map((post) => (
+          <PostCard key={post.fields.date} post={post} />
+        ))}
+      </div>
     </div>
   );
 }
 
 export async function getStaticProps() {
-  const res = await fetchEntries();
-  const posts = await res.map((post) => post.fields);
-  console.log("posts", posts);
+  const posts = await getAllPosts();
+
   return {
     props: {
       posts,
