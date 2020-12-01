@@ -1,6 +1,3 @@
-import Head from "next/head";
-import Header from "@components/Header";
-import Footer from "@components/footer/Footer";
 import PostCard from "@components/post/PostCard";
 
 import { getAllPosts } from "@utils/contentfulPosts";

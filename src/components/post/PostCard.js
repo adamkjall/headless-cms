@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { getSlug } from "src/utils/getSlug";
+import { getSlug } from "@utils/getSlug";
 
 export default function PostCard({ post }) {
   const {
