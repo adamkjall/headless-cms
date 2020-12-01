@@ -3,11 +3,7 @@ import { getPostById, getAllPosts } from "@utils/contentfulPosts";
 import { getSlug } from "@utils/getSlug";
 
 export default function Slug({ post }) {
-  return (
-    <div className="posts ">
-      <PostView key={post.date} post={post} />
-    </div>
-  );
+  return <PostView key={post.date} post={post} />;
 }
 
 export async function getStaticProps({ params }) {

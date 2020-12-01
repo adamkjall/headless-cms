@@ -21,7 +21,7 @@ export default function Post({ post }) {
   } = image.fields;
 
   return (
-    <div className="post">
+    <div className="post-view flex flex-col align-center">
       <Image
         alt={description}
         src={`https:${file.url}`}
@@ -41,7 +41,7 @@ export default function Post({ post }) {
 const options = {
   renderMark: {
     [MARKS.CODE]: (text) => (
-      <pre className="bg-gray-200 p-4 font-mono my-2">
+      <pre className="bg-gray-900 p-4 my-2 font-mono text-white whitespace-pre-wrap break-words rounded">
         <code>{text}</code>
       </pre>
     ),
