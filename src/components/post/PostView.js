@@ -51,6 +51,7 @@ const options = {
     [INLINES.HYPERLINK]: (node, children) => (
       <a
         href={node.data.uri}
+        target="_blank"
         className="text-blue-500 visited:text-purple-600 cursor-pointer"
       >
         {children}
