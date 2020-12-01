@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { getSlug } from "@utils/getSlug";
+import { getSlug } from "src/utils/getSlug";
 
 export default function PostCard({ post }) {
   const {
@@ -21,7 +21,7 @@ export default function PostCard({ post }) {
 
   return (
     <Link href={`/blog/${getSlug(title)}-${id}`}>
-      <div className="post cursor-pointer bg-gray-800 p-4 rounded shadow-lg">
+      <div className="post cursor-pointer bg-gray-800 p-4 rounded shadow-lg flex flex-col align-center">
         <Image
           alt={description}
           src={`https:${file.url}`}
