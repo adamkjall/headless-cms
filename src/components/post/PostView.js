@@ -5,33 +5,21 @@ import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 
 import moment from "moment";
 
-export default function Post({ post }) {
+export default function Post({ title, date, image, alt, body }) {
   const {
-    fields: { title, image, date, body },
-    sys: { id },
-  } = post;
-  const {
-    file,
-    description,
-    file: {
-      details: {
-        image: { width, height },
-      },
+    url,
+    details: {
+      image: { width, height },
     },
-  } = image.fields;
+  } = image.fields?.file;
 
   return (
     <div className="post-view flex flex-col align-center">
-      <Image
-        alt={description}
-        src={`https:${file.url}`}
-        width={width}
-        height={height}
-      />
+      <Image alt={alt} src={`https:${url}`} width={width} height={height} />
 
       <div className="text">
         <h2 className="text-3xl mt-8">{title}</h2>
-        <h3>{moment(date).format("MMMM Do YYYY, hh:mm")}</h3>
+        <div>{moment(date).format("MMMM Do YYYY, hh:mm")}</div>
       </div>
       <div>{documentToReactComponents(body, options)}</div>
     </div>

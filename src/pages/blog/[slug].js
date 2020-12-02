@@ -1,9 +1,18 @@
 import PostView from "@components/post/PostView";
-import { getPostById, getAllPosts } from "@utils/contentfulPosts";
+import { getPostById, getAllPosts } from "@utils/getContent";
 import { getSlug } from "@utils/getSlug";
 
 export default function Slug({ post }) {
-  return <PostView key={post.date} post={post} />;
+  return (
+    <PostView
+      key={post.id}
+      title={post.title}
+      date={post.date}
+      image={post.image}
+      alt={post.alt}
+      body={post.body}
+    />
+  );
 }
 
 export async function getStaticProps({ params }) {
@@ -21,7 +30,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const postData = await getAllPosts();
   const paths = postData.map(
-    (post) => `/blog/${getSlug(post.fields.title)}-${post.sys.id}`
+    (post) => `/blog/${getSlug(post.title)}-${post.id}`
   );
 
   return {
