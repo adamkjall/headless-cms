@@ -14,23 +14,29 @@ export default function Post({ title, date, image, alt, body }) {
   } = image.fields?.file;
 
   return (
-    <div className="post-view flex flex-col align-center">
-      <Image alt={alt} src={`https:${url}`} width={width} height={height} />
+    <article className="post-view flex flex-col align-center">
+      <Image
+        alt={alt}
+        src={`https:${url}`}
+        width={width}
+        height={height}
+        layout="responsive"
+      />
 
       <div className="text">
         <h2 className="text-3xl mt-8">{title}</h2>
         <div>{moment(date).format("MMMM Do YYYY, hh:mm")}</div>
       </div>
       <div>{documentToReactComponents(body, options)}</div>
-    </div>
+    </article>
   );
 }
 
 const options = {
   renderMark: {
     [MARKS.CODE]: (text) => (
-      <pre className="bg-gray-900 p-4 my-2 font-mono text-white whitespace-pre-wrap break-words rounded">
-        <code>{text}</code>
+      <pre className="bg-gray-900 p-4 my-2 font-mono text-white rounded whitespace-pre-wrap break-words">
+        <code className="language-js">{text}</code>
       </pre>
     ),
   },

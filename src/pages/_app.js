@@ -1,4 +1,5 @@
 import Layout from "@components/Layout";
+import "prismjs/themes/prism-tomorrow.css";
 
 import "@styles/index.css";
 
