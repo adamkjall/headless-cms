@@ -15,7 +15,7 @@ export default function PostCard({ id, title, date, image, alt }) {
 
   return (
     <Link href={`/blog/${getSlug(title)}-${id}`}>
-      <div className="post cursor-pointer bg-gray-800 p-4 rounded shadow-lg flex flex-col align-center">
+      <div className="post cursor-pointer bg-gray-800 py-6 px-10 rounded shadow-lg flex flex-col align-center">
         <Image alt={alt} src={`https:${url}`} width={width} height={height} />
         <div className="text text-white text-center">
           <h2 className="text-3xl mt-4 mb-2 ">{title}</h2>

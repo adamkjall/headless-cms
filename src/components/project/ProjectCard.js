@@ -17,7 +17,7 @@ export default function ProjectCard({
     },
   } = featuredImage.fields?.file;
   return (
-    <div className="cursor-pointer bg-gray-800 p-10 rounded shadow-lg flex flex-col align-center text-white">
+    <div className="cursor-pointer bg-gray-800 px-10 py-6 rounded shadow-lg flex flex-col align-center text-white">
       <div className="flex justify-center mb-4">
         <Image
           src={`https:${url}`}

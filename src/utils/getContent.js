@@ -36,7 +36,7 @@ export async function getHomePage() {
   if (entries) {
     const homePage = entries.items[0];
     const projectItems = entries.items[0].fields.projects;
-    const postItems = entries.items[0].fields.postItems;
+    const postItems = entries.items[0].fields.posts;
     const projects = transformItems(projectItems);
     const posts = transformItems(postItems);
 
