@@ -7,7 +7,9 @@ export default function Home({ posts, projects }) {
   return (
     <div className="flex flex-col">
       <div className="h-screen -mt-28 flex justify-center items-center">
-        <h1 className="text-9xl">Hello</h1>
+        <h1 className="text-7xl">
+          Hello <br /> world.
+        </h1>
       </div>
       <div className="grid grid-cols-1 gap-20">
         <section>
