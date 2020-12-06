@@ -35,7 +35,7 @@ export default function Post({ title, date, image, alt, body }) {
 const options = {
   renderMark: {
     [MARKS.CODE]: (text) => (
-      <pre className="bg-gray-900 p-4 my-2 font-mono text-white rounded whitespace-pre-wrap break-words">
+      <pre className="bg-gray-900 p-4 my-2 font-mono text-white rounded whitespace-pre-wrap break-all">
         <code className="language-js">{text}</code>
       </pre>
     ),
@@ -46,7 +46,7 @@ const options = {
       <a
         href={node.data.uri}
         target="_blank"
-        className="text-blue-500 visited:text-purple-600 cursor-pointer"
+        className="cursor-pointer underline"
       >
         {children}
       </a>

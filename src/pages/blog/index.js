@@ -4,7 +4,7 @@ import { getAllPosts } from "@utils/getContent";
 
 export default function BlogPage({ posts }) {
   return (
-    <div className="posts grid grid-cols-2 gap-10">
+    <div className="posts grid grid-cols-1 gap-10">
       {posts?.map((post) => (
         <PostCard key={post.id} {...post} />
       ))}

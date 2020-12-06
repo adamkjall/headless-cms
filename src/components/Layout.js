@@ -3,11 +3,11 @@ import Head from "next/head";
 import Navbar from "@components/Navbar";
 import Footer from "@components/footer/Footer";
 
-import Prism from "Prismjs";
+//import Prism from "Prismjs";
 
 export default function Layout({ children }) {
   useEffect(() => {
-    Prism.highlightAll();
+    // Prism.highlightAll();
   }, []);
 
   return (
@@ -17,7 +17,7 @@ export default function Layout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className="max-w-screen-lg mx-auto mb-auto px-4 py-12">
+      <main className="max-w-screen-md mx-auto mb-auto pt-12 pb-32 px-4">
         {children}
       </main>
       <Footer />

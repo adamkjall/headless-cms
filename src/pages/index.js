@@ -6,22 +6,27 @@ import { getHomePage } from "@utils/getContent";
 export default function Home({ posts, projects }) {
   return (
     <div className="flex flex-col">
-      <section>
-        <h1 className="text-3xl mb-4">Blog posts</h1>
-        <div className="grid grid-cols-2 gap-10">
-          {posts?.slice(0, 3).map((post) => (
-            <PostCard key={post.id} {...post} />
-          ))}
-        </div>
-      </section>
-      <section>
-        <h1 className="text-3xl mb-4">Projects</h1>
-        <div className="grid grid-cols-2 gap-10">
-          {projects?.slice(0, 3).map((project) => (
-            <ProjectCard key={project.id} {...project} />
-          ))}
-        </div>
-      </section>
+      <div className="h-screen -mt-28 flex justify-center items-center">
+        <h1 className="text-9xl">Hello</h1>
+      </div>
+      <div className="grid grid-cols-1 gap-20">
+        <section>
+          <h1 className="text-5xl mb-8 text-center">Blog posts</h1>
+          <div className="grid grid-cols-1 gap-20">
+            {posts?.slice(0, 3).map((post) => (
+              <PostCard key={post.id} {...post} />
+            ))}
+          </div>
+        </section>
+        <section>
+          <h1 className="text-5xl mb-8 text-center">Projects</h1>
+          <div className="grid grid-cols-1 gap-20">
+            {projects?.slice(0, 3).map((project) => (
+              <ProjectCard key={project.id} {...project} />
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

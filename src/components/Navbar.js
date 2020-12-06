@@ -5,7 +5,7 @@ export default function Navbar() {
   const { pathname } = useRouter();
 
   return (
-    <nav className="flex justify-center space-x-10 p-4 uppercase sticky top-0 z-50 bg-gray-900 text-white text-xl">
+    <nav className="h-14 flex justify-center items-center space-x-10 uppercase sticky top-0 z-50 bg-gray-900 text-white text-xl">
       <Link href="/">
         <a className={pathname === "/" ? "text-pink-400" : ""}>Home</a>
       </Link>
