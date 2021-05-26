@@ -8,7 +8,8 @@ export default function Home({ posts, projects }) {
     <div className="flex flex-col">
       <div className="h-screen -mt-28 flex justify-center items-center">
         <h1 className="text-7xl">
-          Hello <br /> world.
+          {/* Du är grym Adam, jag älskar dig <br /> du kan så mycket mer än du tror, du är en fantastisk människa och du kan sprida glädje och harmoni. */}
+          Hello world
         </h1>
       </div>
       <div className="grid grid-cols-1 gap-20">
