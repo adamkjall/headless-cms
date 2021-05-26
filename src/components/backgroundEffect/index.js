@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import { Canvas } from "@react-three/fiber"
-import { useControls } from "leva"
+import { Canvas } from "@react-three/fiber";
+import { useControls } from "leva";
 
 import Sphere from "@components/Sphere";
 // import * as TWEEN from "@tweenjs/tween.js";
@@ -8,21 +8,25 @@ import Sphere from "@components/Sphere";
 import styles from "./BackgroundEffect.module.css";
 
 export default function BackgroundEffect() {
+  if (typeof window !== "undefined") {
+  }
 
- 
-    if (typeof window !== 'undefined' ) {
- 
+  const [aspect, setAspect] = useState(16 / 9);
 
-    }
-
-    const [aspect, setAspect] = useState(16 / 9)
-
-    
+  const { position } = useControls("Sphere", {
+    position: {
+      value: {
+        x: 22,
+        y: 16,
+        z: 0,
+      },
+    },
+  });
 
   useEffect(() => {
     // Init
-    const rand = Math.random();
-    setAspect(window.innerWidth / window.innerHeight)
+    // const rand = Math.random();
+    setAspect(window.innerWidth / window.innerHeight);
     // const scene = new THREE.Scene();
 
     // const uniforms = THREE.UniformsUtils.merge([
@@ -67,16 +71,15 @@ export default function BackgroundEffect() {
     // const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
     // scene.add(ambientLight);
 
-    if (typeof window === 'object') {
-        // Check if document is finally loaded
-        window.addEventListener("resize", handleResize);
-        handleResize();
-       
-          }
-        
+    if (typeof window === "object") {
+      // Check if document is finally loaded
+      window.addEventListener("resize", handleResize);
+      handleResize();
+    }
   }, []);
 
   const handleResize = () => {
+    setAspect(window.innerWidth / window.innerHeight);
     // const canvasHeight = window.innerHeight;
     // const windowWidth = window.innerWidth;
     // const fullHeight = canvasHeight + canvasHeight * 0.3;
@@ -97,11 +100,18 @@ export default function BackgroundEffect() {
     //   }
   };
 
-  return <Canvas className={styles.scene} id="scene" camera={{ position: [35, aspect, 0.2, 200], isPerspectiveCamera: true }} color="0x111111">
+  return (
+    <Canvas
+      className={styles.scene}
+      id="scene"
+      camera={{ position: [35, aspect, 0.2, 200], isPerspectiveCamera: true }}
+      color="0x111111"
+    >
       <ambientLight intensity={0.1} />
       <directionalLight position={[200, 100, 100]} intensity={0.6} />
       <directionalLight position={[100, -200, -100]} intensity={0.6} />
-      <Sphere position={[22, 16, 0]} />
+      <Sphere position={[position.x, position.y, position.z]} />
       {/* <mesh ref={mesh} geometry={new THREE.SphereBufferGeometry(20, 64, 64)} material={material} /> */}
-  </Canvas>;
+    </Canvas>
+  );
 }
