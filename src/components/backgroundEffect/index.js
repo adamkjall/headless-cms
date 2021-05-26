@@ -16,8 +16,8 @@ export default function BackgroundEffect() {
   const { position } = useControls("Sphere", {
     position: {
       value: {
-        x: 22,
-        y: 16,
+        x: 14,
+        y: 0,
         z: 0,
       },
     },
@@ -105,7 +105,7 @@ export default function BackgroundEffect() {
       className={styles.scene}
       id="scene"
       camera={{ position: [35, aspect, 0.2, 200], isPerspectiveCamera: true }}
-      color="0x111111"
+      // color="0x111111"
     >
       <ambientLight intensity={0.1} />
       <directionalLight position={[200, 100, 100]} intensity={0.6} />
