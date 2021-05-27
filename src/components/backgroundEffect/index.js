@@ -13,15 +13,21 @@ export default function BackgroundEffect() {
 
   const [aspect, setAspect] = useState(16 / 9);
 
-  const { position } = useControls("Sphere", {
-    position: {
-      value: {
-        x: 14,
-        y: 11,
-        z: -16,
-      },
-    },
-  });
+  // const { position } = useControls("Sphere", {
+  //   position: {
+  //     value: {
+  //       x: 14,
+  //       y: 11,
+  //       z: -16,
+  //     },
+  //   },
+  // });
+
+  const position = {
+    x: 14,
+    y: 11,
+    z: -16,
+  };
 
   useEffect(() => {
     // const rand = Math.random();

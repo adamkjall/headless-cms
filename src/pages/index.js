@@ -6,8 +6,12 @@ import { getHomePage } from "@utils/getContent";
 export default function Home({ posts, projects }) {
   return (
     <div className="flex flex-col">
-      <div className="h-screen -mt-28 flex justify-center items-center">
-        <h1 className="text-7xl text-white">Hello world</h1>
+      <div className="h-screen flex justify-center items-center">
+        <div>
+          <h1 className="text-3xl text-white">Adam Kjäll</h1>
+          <br />
+          <h1 className="text-7xl text-white">Web developer</h1>
+        </div>
       </div>
       <div className="grid grid-cols-1 gap-20">
         <section>

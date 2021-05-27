@@ -32,19 +32,27 @@ function Sphere(props) {
     })
   );
 
-  const { radius, heightSegments, widthSegments, rotationSpeed, noise } =
-    useControls("Sphere", {
-      widthSegments: { value: 512 },
-      heightSegments: { value: 512 },
-      radius: { value: 28 },
-      rotationSpeed: { value: 0.00025, min: -0.06, max: 0.06 },
-      noise: { value: 0.00003, min: 0.000001, max: 0.0001 },
-    });
+  // const { radius, heightSegments, widthSegments, rotationSpeed, noise } =
+  //   useControls("Sphere", {
+  //     widthSegments: { value: 512 },
+  //     heightSegments: { value: 512 },
+  //     radius: { value: 28 },
+  //     rotationSpeed: { value: 0.00025, min: -0.06, max: 0.06 },
+  //     noise: { value: 0.00003, min: 0.000001, max: 0.0001 },
+  //   });
+
+  const widthSegments = 512;
+  const heightSegments = 512;
+  const radius = 28;
+  const rotationSpeed = 0.00025;
+  const noise = 0.00003;
 
   // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame((state, delta) => {
     material.current.uniforms.time.value = noise * (Date.now() - start.current);
     mesh.current.rotation.y += rotationSpeed;
+    mesh.current.rotation.x += rotationSpeed / 2;
+    // console.log(mesh.current.rotation);
     if (ticking.current) {
       animate();
     }
