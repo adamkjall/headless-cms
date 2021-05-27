@@ -49,6 +49,7 @@ export default function BackgroundEffect() {
       className={styles.scene}
       id="scene"
       camera={{ position: [35, aspect, 0.2, 200], isPerspectiveCamera: true }}
+      // data-scroll-speed="0.5"
       // color="0x111111"
     >
       <ambientLight intensity={0.2} />

@@ -1,5 +1,5 @@
 .scene {
-  position: fixed !important;
+  position: absolute !important;
   height: 100vh !important;
-  /* z-index: -1 !important; */
+  /* z-index: -1 !important;   */
 }
