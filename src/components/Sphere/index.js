@@ -32,10 +32,18 @@ function Sphere(props) {
     })
   );
 
+  const { radius, heightSegments, widthSegments, rotationSpeed, noise } =
+    useControls("Sphere", {
+      widthSegments: { value: 512 },
+      heightSegments: { value: 512 },
+      radius: { value: 28 },
+      rotationSpeed: { value: 0.00025, min: -0.06, max: 0.06 },
+      noise: { value: 0.00003, min: 0.000001, max: 0.0001 },
+    });
+
   // Subscribe this component to the render-loop, rotate the mesh every frame
   useFrame((state, delta) => {
-    material.current.uniforms.time.value =
-      0.00001 * (Date.now() - start.current);
+    material.current.uniforms.time.value = noise * (Date.now() - start.current);
     mesh.current.rotation.y += rotationSpeed;
     if (ticking.current) {
       animate();
@@ -43,15 +51,6 @@ function Sphere(props) {
     TWEEN.update();
   });
 
-  const { radius, heightSegments, widthSegments, rotationSpeed } = useControls(
-    "Sphere",
-    {
-      widthSegments: { value: 128 },
-      heightSegments: { value: 128 },
-      radius: { value: 28 },
-      rotationSpeed: { value: 0.00035, min: -0.06, max: 0.06 },
-    }
-  );
   useEffect(() => {
     window.addEventListener("mousemove", _.throttle(onMouseMove, 200));
   }, []);

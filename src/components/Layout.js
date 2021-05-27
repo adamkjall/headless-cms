@@ -20,7 +20,7 @@ export default function Layout({ children }) {
       </Head>
       <BackgroundEffect />
       <Navbar />
-      <main className="max-w-screen-md mx-auto mb-auto pt-12 pb-32 px-4 z-10">
+      <main className="max-w-screen-lg mx-auto mb-auto pt-12 pb-32 px-4 z-10">
         {children}
       </main>
       <Footer />
