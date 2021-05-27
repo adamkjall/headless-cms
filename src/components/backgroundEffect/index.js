@@ -17,8 +17,8 @@ export default function BackgroundEffect() {
     position: {
       value: {
         x: 14,
-        y: 0,
-        z: 0,
+        y: 11,
+        z: -16,
       },
     },
   });
@@ -45,9 +45,9 @@ export default function BackgroundEffect() {
       camera={{ position: [35, aspect, 0.2, 200], isPerspectiveCamera: true }}
       // color="0x111111"
     >
-      <ambientLight intensity={0.1} />
+      <ambientLight intensity={0.2} />
       <directionalLight position={[200, 100, 100]} intensity={0.6} />
-      <directionalLight position={[100, -200, -100]} intensity={0.6} />
+      {/* <directionalLight position={[100, -200, -100]} intensity={0.6} /> */}
       <Sphere position={[position.x, position.y, position.z]} />
       {/* <mesh ref={mesh} geometry={new THREE.SphereBufferGeometry(20, 64, 64)} material={material} /> */}
     </Canvas>

@@ -40,6 +40,7 @@ export const sphereFragShader = `
 
     vec3 color = vec3(vUv * (0.2 - 2.0 * noise), 1.0);
     vec3 finalColors = vec3(color.r, color.b * 1.4, color.b);
+    // vec3 finalColors = vec3(color.r, color.b * 0.4, color.b);
     vec4 diffuseColor = vec4(cos(finalColors * noise * 3.0), 1.0);
     ReflectedLight reflectedLight = ReflectedLight(vec3(0.0), vec3(0.0), vec3(0.0), vec3(0.0));
     vec3 totalEmissiveRadiance = emissive;
@@ -220,10 +221,11 @@ export const sphereVertShader = `
 
   float turbulence(vec3 p) {
     float w = 100.0;
-    float t = -.5;
-    for (float f = 1.0 ; f <= 10.0 ; f++) {
-      float power = pow(2.0, f);
-      t += abs(pnoise(vec3(power * p), vec3(10.0, 10.0, 10.0)) / power);
+    float t = -.50;
+    // float t = -10.0;
+    for (float f = 1.0 ; f <= 1.0 ; f++) {
+      float power = pow(3.0, f);
+      t += abs(pnoise(vec3(power * p), vec3(10.0, 50.0, 10.0)) / power);
     }
     return t;
   }
@@ -280,7 +282,7 @@ export const sphereVertShader = `
 
     vUv = uv;
 
-    noise = turbulence(0.001 * position + normal + time * 0.4);
+    noise = turbulence(0.01 * position + normal + time * 0.8);
     vec3 displacement = vec3((position.x) * noise, position.y * noise, position.z * noise);
     gl_Position = projectionMatrix * modelViewMatrix * vec4((position + normal) + displacement, 1.0);
   }

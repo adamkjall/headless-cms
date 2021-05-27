@@ -1,8 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useControls } from "leva";
 import * as THREE from "three";
 import * as TWEEN from "@tweenjs/tween.js";
+import _ from "lodash";
 
 import { sphereFragShader, sphereVertShader } from "./shaders";
 
@@ -10,6 +11,8 @@ function Sphere(props) {
   const start = useRef(Date.now());
   // This reference will give us direct access to the THREE.Mesh object
   const mesh = useRef();
+  const ticking = useRef(false);
+  const mousePos = useRef(null);
 
   const uniforms = useRef(
     THREE.UniformsUtils.merge([
@@ -34,17 +37,49 @@ function Sphere(props) {
     material.current.uniforms.time.value =
       0.00001 * (Date.now() - start.current);
     mesh.current.rotation.y += rotationSpeed;
+    if (ticking.current) {
+      animate();
+    }
+    TWEEN.update();
   });
 
   const { radius, heightSegments, widthSegments, rotationSpeed } = useControls(
     "Sphere",
     {
-      widthSegments: { value: 64 },
-      heightSegments: { value: 64 },
-      radius: { value: 10 },
+      widthSegments: { value: 128 },
+      heightSegments: { value: 128 },
+      radius: { value: 28 },
       rotationSpeed: { value: 0.00035, min: -0.06, max: 0.06 },
     }
   );
+  useEffect(() => {
+    window.addEventListener("mousemove", _.throttle(onMouseMove, 200));
+  }, []);
+
+  const onMouseMove = (event) => {
+    if (ticking.current) return;
+
+    const position = {
+      x: event.clientX / window.innerWidth,
+      y: event.clientY / window.innerHeight,
+    };
+
+    mousePos.current = position;
+
+    ticking.current = true;
+  };
+
+  const animate = () => {
+    const pos = mousePos.current;
+    if (!pos) return;
+
+    new TWEEN.Tween(mesh.current.rotation)
+      .to({ x: pos.y / 2, y: pos.x / 2 }, 2000)
+      .easing(TWEEN.Easing.Quartic.Out)
+      .start();
+
+    ticking.current = false;
+  };
 
   // Return the view, these are regular Threejs elements expressed in JSX
   return (
