@@ -41,8 +41,8 @@ function Sphere(props) {
   //     noise: { value: 0.00003, min: 0.000001, max: 0.0001 },
   //   });
 
-  const widthSegments = 512;
-  const heightSegments = 512;
+  const widthSegments = 256;
+  const heightSegments = 256;
   const radius = 28;
   const rotationSpeed = 0.00025;
   const noise = 0.00003;

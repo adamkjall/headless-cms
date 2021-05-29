@@ -6,7 +6,7 @@ export const SmoothScrollContext = createContext({
 
 export const SmoothScrollProvider = ({ children, options }) => {
   const [scroll, setScroll] = useState(null);
-
+  console.log("context provider")
   useEffect(() => {
     if (!scroll) {
       (async () => {

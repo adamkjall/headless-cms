@@ -4,6 +4,10 @@
 @tailwind components;
 /* Stop purging. */
 
+:root {
+  theme: #69153B; 
+}
+
 /* global styles */
 html,
 body {

@@ -7,31 +7,42 @@ export default function Navbar() {
   const { pathname } = useRouter();
 
   return (
-    <nav className="h-screen flex flex-col justify-center items-center space-y-20 uppercase sticky top-0 z-50 bg-gray-900 text-white text-xl">
+    <nav
+      data-scroll
+      data-scroll-sticky
+      data-scroll-target="#container"
+      className="h-screen flex flex-col justify-center items-center space-y-20 uppercase sticky top-0 z-50 bg-gray-900 text-xl hidden lg:flex"
+    >
       <Link href="/">
         <a
-          className={
-            (pathname === "/" ? "text-pink-400" : "", "transform rotate-90")
-          }
+          className={`
+            ${
+              pathname === "/" ? "text-pink-400" : "text-white"
+            } transform rotate-90 
+          `}
         >
-          {/* <Logo width="42" /> */}Home
+          {/* <Logo width="42" /> */}
+          Home
         </a>
       </Link>
-      <Link href="/projects/">
+      <Link href="/projects">
         <a
-          className={
-            (pathname === "/projects" ? "text-pink-400" : "",
-            "transform rotate-90")
-          }
+          className={`
+          ${
+            pathname === "/projects" ? "text-pink-400" : "text-white"
+          } transform rotate-90
+        `}
         >
           Projects
         </a>
       </Link>
-      <Link href="/blog/">
+      <Link href="/blog">
         <a
-          className={
-            (pathname === "/blog" ? "text-pink-400" : "", "transform rotate-90")
-          }
+          className={`
+          ${
+            pathname === "/blog" ? "text-pink-400" : "text-white"
+          } transform rotate-90
+        `}
         >
           Blog
         </a>

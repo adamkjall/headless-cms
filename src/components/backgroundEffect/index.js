@@ -25,8 +25,8 @@ export default function BackgroundEffect() {
 
   const position = {
     x: 14,
-    y: 11,
-    z: -16,
+    y: 12,
+    z: -18,
   };
 
   useEffect(() => {

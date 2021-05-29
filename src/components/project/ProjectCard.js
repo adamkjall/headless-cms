@@ -17,7 +17,7 @@ export default function ProjectCard({
     },
   } = featuredImage.fields?.file;
   return (
-    <div className="cursor-pointer bg-gray-800 px-10 py-6 rounded shadow-lg flex flex-col align-center text-white">
+    <div className="cursor-pointer bg-white rounded-sm pb-6 shadow-lg flex flex-col align-center text-white">
       <div className="flex justify-center mb-4">
         <Image
           src={`https:${url}`}
@@ -26,9 +26,9 @@ export default function ProjectCard({
           height={height}
         />
       </div>
-      <h2 className="text-2xl text-center">{title}</h2>
+      <h2 className="text-2xl text-center text-black ">{title}</h2>
       <pre>
-        <p className="whitespace-pre-wrap break-words">{excerpt}</p>
+        {/* <p className="whitespace-pre-wrap break-words">{excerpt}</p> */}
       </pre>
     </div>
   );

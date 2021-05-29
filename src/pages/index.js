@@ -1,37 +1,22 @@
-import PostCard from "@components/post/PostCard";
+import Hero from "@components/hero/Hero";
 import ProjectCard from "@components/project/ProjectCard";
+
+import Clouds from "../../public/cloudy__bg.svg"
 
 import { getHomePage } from "@utils/getContent";
 
 export default function Home({ posts, projects }) {
   return (
-    <div className="flex flex-col">
-      <div
-        data-scroll-section
-        className="h-screen flex justify-center items-center text-white"
-      >
-        <div>
-          <h1
-            data-scroll
-            data-scroll-speed="1"
-            className="text-3xl uppercase tracking-widest leading-tight text-gray-200 font -mb-4"
-          >
-            Adam Kjäll
-          </h1>
-          <br />
-          <h1
-            data-scroll
-            data-scroll-speed="1.3"
-            className="text-7xl tracking-wider"
-          >
-            new WebDeveloper()
-          </h1>
-        </div>
+    <div className="flex flex-col" style={{ background: "#69153B"}}>
+      <Hero />
+      <div className="relative w-full">
+      <Clouds className="transform rotate-180 absolute top-0 left-0 w-full z-0 pointer-events-none" />
+
       </div>
-      <div data-scroll-section className="grid grid-cols-1 gap-20">
-        <section data-scroll>
-          <h1 className="text-5xl mb-8 text-center text-white">Projects</h1>
-          <div className="grid grid-cols-1 gap-20">
+      <div className="grid grid-cols-1 gap-20 px-20 z-10" style={{ padding: "30vh 3rem"}}>
+        <section>
+          <h1 className="text-5xl mb-8 text-center text-white z-10">Projects</h1>
+          <div className="grid gap-8 justify-center" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 500px))"}}>
             {projects?.slice(0, 3).map((project) => (
               <ProjectCard key={project.id} {...project} />
             ))}

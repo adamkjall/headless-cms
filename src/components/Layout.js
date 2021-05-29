@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "@components/Navbar";
 import Footer from "@components/footer/Footer";
 import BackgroundEffect from "@components/backgroundEffect";
+
 import { SmoothScrollProvider } from "@contexts/SmoothScroll.context";
 
 export default function Layout({ children }) {
@@ -12,22 +13,18 @@ export default function Layout({ children }) {
         <title>Adam Kjäll - portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex" data-scroll-container>
+      <div className="flex" id="container">
         <Navbar />
-        <main className="flex-grow" data-scroll-section>
+        <main data-scroll-container className="flex-grow">
           <SmoothScrollProvider options={{ smooth: true }}>
             <BackgroundEffect />
-            <div
-              data-scroll
-              data-scroll-speed="1"
-              className="max-w-screen-lg mx-auto mb-auto pt-12 pb-32 px-4 z-10"
-            >
+            <div className="mx-auto mb-auto pb-32 z-10">
               {children}
             </div>
+            <Footer />
           </SmoothScrollProvider>
         </main>
       </div>
-      <Footer />
     </div>
   );
 }

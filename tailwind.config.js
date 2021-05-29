@@ -6,11 +6,20 @@ module.exports = {
   darkMode: false, // 'media' or 'class'
   theme: {
     extend: {
-      zIndex:  {
-        '-10': '-10',
-        '-20': '-20',
-        '-30': '-30',
-      }
+      zIndex: {
+        "-10": "-10",
+        "-20": "-20",
+        "-30": "-30",
+      },
+      animation: {
+        fadeIn: "fadeIn 2s ease-in forwards",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+      },
     },
   },
   variants: {
