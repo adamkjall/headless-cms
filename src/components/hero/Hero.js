@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="h-screen flex items-center text-white ">
+    <div className="h-screen flex items-center text-white " style={{ backgroundColor: "#111111" }}>
       <div className="flex flex-col animate-fadeIn pl-32">
         <h1
           //   data-scroll

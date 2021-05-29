@@ -11,10 +11,10 @@ import Clouds from "../../../public/cloudy.svg";
 export default function Footer() {
   return (
     <footer
-      className={`${styles.footer} relative text-white flex w-full`}
+      className={`relative flex justify-center items-center text-white flex w-full pb-20 -mt-4`} style={{ backgroundColor: "#111111" }}
     >
       <Clouds
-        className="absolute bottom-0 left-0 w-full z-0 pointer-events-none"
+        className="absolute bottom-full left-0 w-full z-0 pointer-events-none"
       />
       <div className="flex z-10">
         Made with{" "}

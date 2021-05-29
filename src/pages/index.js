@@ -10,7 +10,7 @@ export default function Home({ posts, projects }) {
     <div className="flex flex-col" style={{ background: "#69153B"}}>
       <Hero />
       <div className="relative w-full">
-      <Clouds className="transform rotate-180 absolute top-0 left-0 w-full z-0 pointer-events-none" />
+      <Clouds className="transform rotate-180 absolute top-0 left-0 w-full z-0 pointer-events-none -mt-2" />
 
       </div>
       <div className="grid grid-cols-1 gap-20 px-20 z-10" style={{ padding: "30vh 3rem"}}>
