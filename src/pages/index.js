@@ -14,10 +14,10 @@ export default function Home({ posts, projects }) {
 
       </div>
       <div className="grid grid-cols-1 gap-20 px-20 z-10" style={{ padding: "30vh 3rem"}}>
-        <section>
-          <h1 className="text-5xl mb-8 text-center text-white z-10">Projects</h1>
+        <section id="projects">
+          <h1 className="text-5xl mb-8 text-center text-white">Projects</h1>
           <div className="grid gap-8 justify-center" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 500px))"}}>
-            {projects?.slice(0, 3).map((project) => (
+            {projects?.map((project) => (
               <ProjectCard key={project.id} {...project} />
             ))}
           </div>

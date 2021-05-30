@@ -52,7 +52,7 @@ export default function BackgroundEffect() {
       // data-scroll-speed="0.5"
       // color="0x111111"
     >
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={0.15} />
       <directionalLight position={[200, 100, 100]} intensity={0.6} />
       {/* <directionalLight position={[100, -200, -100]} intensity={0.6} /> */}
       <Sphere position={[position.x, position.y, position.z]} />

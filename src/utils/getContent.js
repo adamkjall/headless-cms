@@ -37,8 +37,8 @@ export async function getHomePage() {
     const homePage = entries.items[0];
     const projectItems = entries.items[0].fields.projects;
     const postItems = entries.items[0].fields.posts;
-    const projects = transformItems(projectItems);
-    const posts = transformItems(postItems);
+    const projects = projectItems ? transformItems(projectItems) : [];
+    const posts = postItems ? transformItems(postItems) : [];
 
     return {
       id: homePage.sys.id,
