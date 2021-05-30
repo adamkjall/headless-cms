@@ -1,0 +1,74 @@
+.card {
+  overflow: hidden;
+  perspective: 150rem;
+
+  &:hover {
+    .overlay {
+      h2 {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    .imgContainer img {
+      transform: scale(1.1);
+      filter: brightness(0.5);
+    }
+
+    .title {
+      transform: rotateX(180deg);
+    }
+
+    .technologies {
+      visibility: visible;
+      transform: rotateX(0);
+    }
+
+    .links {
+      a {
+        transform: translate3d(0, 0, 0) !important;
+      }
+    }
+  }
+
+  .imgContainer {
+    overflow: hidden;
+
+    img {
+      transition: all 0.2s ease;
+    }
+  }
+
+  .title {
+    transform: rotateX(0deg);
+    transition: transform 0.35s ease;
+  }
+
+  .overlay {
+    transition: opacity 0.2s ease;
+
+    h2 {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s ease-in 0.1s;
+    }
+  }
+
+  .technologies {
+    backface-visibility: hidden;
+    transform: rotateX(-180deg);
+    transition: transform 0.35s ease;
+  }
+
+  .links {
+    transition: transform 0.35s ease;
+
+    svg {
+      fill: white;
+    }
+
+    a {
+      transition: transform 0.35s ease;
+    }
+  }
+}

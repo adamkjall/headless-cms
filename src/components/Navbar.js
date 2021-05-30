@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import Logo from "../../public/fox-icon.svg";
-
 export default function Navbar() {
   const { pathname } = useRouter();
 
@@ -11,7 +9,7 @@ export default function Navbar() {
       data-scroll
       data-scroll-sticky
       data-scroll-target="#container"
-      className="h-screen flex flex-col justify-center items-center space-y-20 uppercase sticky top-0 z-50 bg-gray-900 text-xl hidden lg:flex"
+      className="h-screen hidden lg:flex flex-col justify-center items-center space-y-20 uppercase sticky top-0 z-50 bg-gray-900 text-xl"
     >
       <Link href="/">
         <a
@@ -21,7 +19,6 @@ export default function Navbar() {
             } transform rotate-90 
           `}
         >
-          {/* <Logo width="42" /> */}
           Home
         </a>
       </Link>
