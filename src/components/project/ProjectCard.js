@@ -25,7 +25,8 @@ export default function ProjectCard({
     },
   } = featuredImage.fields?.file;
 
-  console.log("stack", testStack);
+  // TODO replace testStack
+  // console.log("stack", testStack);
   return (
     <div
       className={`${styles.card} relative cursor-pointer bg-white rounded-sm shadow-lg flex flex-col align-center text-white`}
