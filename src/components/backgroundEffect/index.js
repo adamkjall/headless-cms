@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { useControls } from "leva";
+// import { useControls } from "leva";
 
 import Sphere from "@components/Sphere";
 // import * as TWEEN from "@tweenjs/tween.js";
