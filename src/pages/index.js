@@ -8,7 +8,7 @@ import { getHomePage } from "@utils/getContent";
 export default function Home({ posts, projects }) {
   return (
     <div className="flex flex-col" style={{ background: "#69153B"}}>
-      <Hero />
+      <Hero  for={1} />
       <div className="relative w-full">
       <Clouds className="transform rotate-180 absolute top-0 left-0 w-full z-0 pointer-events-none -mt-5" />
 
